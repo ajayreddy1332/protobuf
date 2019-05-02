@@ -182,6 +182,8 @@ def cc_proto_library(
     **kargs: other keyword arguments that are passed to cc_library.
 
   """
+  
+  cc_libs = list(cc_libs)
 
   includes = []
   if include != None:
