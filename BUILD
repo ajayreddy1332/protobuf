@@ -189,6 +189,21 @@ objc_library(
     visibility = ["//visibility:public"],
 )
 
+WELL_KNOWN_PROTO_MAP = {
+    "any" : ("src/google/protobuf/any.proto", []),
+    "api" : ("src/google/protobuf/api.proto", ["source_context", "type"]),
+    "compiler_plugin" : ("src/google/protobuf/compiler/plugin.proto", ["descriptor"]),
+    "descriptor" : ("src/google/protobuf/descriptor.proto", []),
+    "duration" : ("src/google/protobuf/duration.proto", []),
+    "empty" : ("src/google/protobuf/empty.proto", []),
+    "field_mask" : ("src/google/protobuf/field_mask.proto", []),
+    "source_context" : ("src/google/protobuf/source_context.proto", []),
+    "struct" : ("src/google/protobuf/struct.proto", []),
+    "timestamp" : ("src/google/protobuf/timestamp.proto", []),
+    "type" : ("src/google/protobuf/type.proto", ["any", "source_context"]),
+    "wrappers" : ("src/google/protobuf/wrappers.proto", []),
+}
+
 RELATIVE_WELL_KNOWN_PROTOS = [
     # AUTOGEN(well_known_protos)
     "google/protobuf/any.proto",
@@ -212,21 +227,6 @@ filegroup(
     srcs = WELL_KNOWN_PROTOS,
     visibility = ["//visibility:public"],
 )
-
-WELL_KNOWN_PROTO_MAP = {
-    "any" : ("google/protobuf/any.proto", []),
-    "api" : ("google/protobuf/api.proto", ["source_context", "type"]),
-    "compiler_plugin" : ("google/protobuf/compiler/plugin.proto", ["descriptor"]),
-    "descriptor" : ("google/protobuf/descriptor.proto", []),
-    "duration" : ("google/protobuf/duration.proto", []),
-    "empty" : ("google/protobuf/empty.proto", []),
-    "field_mask" : ("google/protobuf/field_mask.proto", []),
-    "source_context" : ("google/protobuf/source_context.proto", []),
-    "struct" : ("google/protobuf/struct.proto", []),
-    "timestamp" : ("google/protobuf/timestamp.proto", []),
-    "type" : ("google/protobuf/type.proto", ["any", "source_context"]),
-    "wrappers" : ("google/protobuf/wrappers.proto", []),
-}
 
 [proto_library(
     name = proto[0] + "_proto",
